@@ -41,4 +41,21 @@ class ActorsController < ApplicationController
     
     redirect_to("/actors/#{the_id}")
   end
+
+  def destroy
+  the_id = params[:an_id]
+  actor = Actor.find(the_id)
+  actor.destroy
+  redirect_to("/actors")
+end
+
+def update
+  the_id = params[:the_id]
+  actor = Actor.find(the_id)
+  actor.image = params[:the_image]
+  actor.name = params[:the_name]
+  actor.save
+  redirect_to("/actors/#{the_id}")
+end
+
 end
