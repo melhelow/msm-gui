@@ -13,4 +13,8 @@
 #  director_id :integer
 #
 class Movie < ApplicationRecord
+   def director_name
+    director = Director.find_by(id: director_id)
+    director&.name
+  end
 end
